@@ -29,4 +29,4 @@ while IFS= read -r line; do
         echo "$next is not one patch increment higher than $current"
         exit 1;
     fi
-done <<< "$(git diff $branch..HEAD --word-diff | awk '/{+.*+}/ {print}')"
+done <<< "$(git diff origin/$branch..HEAD --word-diff | awk '/{+.*+}/ {print}')"
