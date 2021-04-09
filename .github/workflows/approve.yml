@@ -3,7 +3,8 @@ name: Approve
 on:
   pull_request:
     branches:
-      - [main, master]
+      - main
+      - master
       
 jobs:
   approve:
