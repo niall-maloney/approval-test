@@ -14,7 +14,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        fetch-depth: 1
+        fetch-depth: 0
     - name: Verify that PR only contains image version bumps
       run: ./verify-approval.sh
     - name: Approve pull request
