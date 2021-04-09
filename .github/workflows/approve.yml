@@ -16,7 +16,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Verify that PR only contains image version bumps
-      run: ./verify-approval.sh
+      run: .github/workflows/verify-approval.sh
     - name: Approve PR
       uses: hmarr/auto-approve-action@v2
       with:
