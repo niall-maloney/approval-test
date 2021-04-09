@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BRANCH=${GITHUB_BASE_REF##*/}
+branch=${GITHUB_BASE_REF##*/}
 
 semver_rx='^(.*)(:)([0-9]+\.){2,2}(\*|[0-9]+)(\-.*){0,1}$'
 
@@ -29,4 +29,4 @@ while IFS= read -r line; do
         echo "$next is not one patch increment higher than $current"
         exit 1;
     fi
-done <<< "$(git diff master..HEAD --word-diff | awk '/{+.*+}/ {print}')"
+done <<< "$(git diff origin/$branch..HEAD --word-diff | awk '/{+.*+}/ {print}')"
