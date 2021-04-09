@@ -8,15 +8,16 @@ on:
       
 jobs:
   approve:
-    name: Verify that PR only contains image version bumps
+    name: Approve PR when it only contains image version bumps
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
       with:
         fetch-depth: 0
     - name: Verify that PR only contains image version bumps
       run: ./verify-approval.sh
-    - name: Auto-approve pull request
+    - name: Approve PR
       uses: hmarr/auto-approve-action@v2
       with:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
