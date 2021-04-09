@@ -17,7 +17,7 @@ jobs:
         fetch-depth: 0
     - name: Verify that PR only contains image version bumps
       run: ./verify-approval.sh
-    - name: Approve pull request
+    - name: Approve PR
       uses: hmarr/auto-approve-action@v2
       with:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
