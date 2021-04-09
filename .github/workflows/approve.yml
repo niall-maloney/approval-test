@@ -1,0 +1,19 @@
+name: Approve
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+      
+jobs:
+  approve:
+    name: Verify that PR only contains image version bumps
+    runs-on: ubuntu-latest
+    steps:
+    - name: Verify that PR only contains image version bumps
+      run: ./verify-approval.sh
+    - name: Auto-approve pull request
+      uses: hmarr/auto-approve-action@v2
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
