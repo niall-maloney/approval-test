@@ -1,0 +1,21 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: mock-job
+  namespace: test01
+  labels:
+    app.kubernetes.io/name: mock-job
+    app.kubernetes.io/component: cronjob
+spec:
+  schedule: "0 12 * * MON-FRI"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: mock-job
+              image: wkcontainers.azurecr.io/mock/mock-jobby:1.0.0
+              env:
+              - name: "ENVIRONMENT_INSTANCE"
+                value: "test"
+          restartPolicy: Never
