@@ -14,7 +14,7 @@ spec:
         spec:
           containers:
             - name: fake-job
-              image: wkcontainers.azurecr.io/fake/fake-jobby:1.0.1
+              image: wkcontainers.azurecr.io/fake/fake-jobby:1.0.2
               env:
               - name: "ENVIRONMENT_INSTANCE"
                 value: "test"
